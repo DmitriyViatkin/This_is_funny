@@ -34,4 +34,7 @@ async def echo(message: types.Message):
 '''
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print('Exit')
