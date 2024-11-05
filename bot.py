@@ -16,7 +16,8 @@ dp = Dispatcher()
 
 @dp.message(CommandStart())
 async def cmd_start(message: Message):
-    await message.reply(f'Hello.\nYou_ID: {message.from_user.id}\nName:{message.from_user.first_name}')
+    await message.reply(f'Hello.\nYou_ID: {message.from_user.id}\
+                        \nName:{message.from_user.first_name}')
 
 
 @dp.message(Command('help'))
