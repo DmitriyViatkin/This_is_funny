@@ -1,6 +1,5 @@
 
 import asyncio
-import random
 from config import key
 from aiogram import Bot, Dispatcher
 from Parser import parser
