@@ -18,7 +18,13 @@ async def cmd_start(message: Message):
 
 @router.message(Command("help"))
 async def get_help(message: Message):
-    await message.answer("It is command /help")
+    await message.reply("It is command /help", reply_markup=kb.settings)
+
+
+@router.message(Command("car"))
+async def get_car(message: Message):
+    await message.reply("It is command car",
+                        reply_markup=await kb.inline_cars())
 
 
 @router.message(F.text == "How are You?")
