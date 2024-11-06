@@ -8,14 +8,12 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 from config import cars
 
 
-main = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text="Get anecdot")],
-        [KeyboardButton(text="Katalog"), KeyboardButton(text="finish")],
-    ],
-    resize_keyboard=True,
-    input_field_placeholder="Bocno",
-)
+main = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='Catalog', callback_data='catalog')],
+        [InlineKeyboardButton(text="Contact", callback_data='Contact'),
+         InlineKeyboardButton(text='Korzina', callback_data='Bug')]
+    ])
 
 
 settings = InlineKeyboardMarkup(

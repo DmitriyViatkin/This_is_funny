@@ -1,6 +1,6 @@
 from aiogram import F, Router
 from aiogram.filters import CommandStart, Command
-from aiogram.types import Message
+from aiogram.types import Message, CallbackQuery
 import app.keyboards as kb
 
 
@@ -12,7 +12,7 @@ async def cmd_start(message: Message):
     await message.reply(
         f"Hello.\nYou_ID: {message.from_user.id}\
                         \nName:{message.from_user.first_name}",
-        reply_markup=kb.main
+        reply_markup=kb.main,
     )
 
 
@@ -23,8 +23,7 @@ async def get_help(message: Message):
 
 @router.message(Command("car"))
 async def get_car(message: Message):
-    await message.reply("It is command car",
-                        reply_markup=await kb.inline_cars())
+    await message.reply("It is command car", reply_markup=await kb.inline_cars())
 
 
 @router.message(F.text == "How are You?")
@@ -35,3 +34,9 @@ async def how_are_you(message: Message):
 @router.message(F.text == "Arestovich")
 async def aristovich(message: Message):
     await message.answer("Trol")
+
+
+@router.callback_query(F.data == "catalog")
+async def catalog(callback: CallbackQuery):
+    await callback.answer("Your catalog", show_alert=True)
+    await callback.message.edit_text("You catalog", reply_markup=await kb.inline_cars())
