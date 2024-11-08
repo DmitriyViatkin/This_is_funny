@@ -10,9 +10,6 @@ from dotenv import load_dotenv
 list_jokes = parser(url)
 
 
-
-
-
 async def main():
     load_dotenv()
     bot = Bot(token=os.getenv('TOKEN'))
